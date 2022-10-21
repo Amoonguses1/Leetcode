@@ -1,27 +1,25 @@
+%time: O(logN)
+%space O(1)
 from typing import List
 
 
 class Solution:
+
     def search(self, nums: List[int], target: int) -> int:
         left = 0
-        n = len( nums ) - 1
+        n = len(nums) - 1
         right = n
-        flag = 0
-        if nums[left] > nums[right] and nums[ left ] > target and nums[right] < target:
-            return -1
-        
-        while flag < 1:
-            if left == right or left == right - 1:
-                flag += 1
+        while left < right:
             check = ( left + right ) // 2
-            if nums[ check ] < nums[ right ]:
+            if nums[check ] < nums[right]:
                 right = check
             else:
-                left = check
+                left = check + 1
         # nums[right] is smallest
-        if nums[ n ] == target:
+        if nums[n] == target:
             return n
-        elif nums[ n ] < target:
+            
+        elif nums[n] < target:
             right -=1
             left = 0
         else:
@@ -29,14 +27,14 @@ class Solution:
             right = n
         if nums[right] == target:
             return right
-        while flag < 2:
-            if left == right or left == right - 1:
-                flag += 1
-            check = ( left + right ) // 2
-            if nums[ check ] ==target:
-                return check
-            elif nums[ check ] < target:
-                left = check
+            
+        while left < right:
+            mid = ( left + right ) // 2
+            if nums[mid] ==target:
+                return mid
+                
+            elif nums[mid] < target:
+                left = mid + 1
             else:
-                right = check
+                right = mid
         return -1
