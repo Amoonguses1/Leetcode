@@ -9,7 +9,7 @@ class Solution:
         left = 0
         right = len(nums)
         while left < right:
-            mid = (right + left ) // 2
+            mid = (right + left) // 2
             if nums[mid] == target:
                 return mid
             
