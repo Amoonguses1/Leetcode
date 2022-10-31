@@ -10,11 +10,11 @@ class Solution:
         n = len(nums) - 1
         right = n
         while left < right:
-            check = ( left + right ) // 2
-            if nums[check ] < nums[right]:
-                right = check
+            mid = ( left + right ) // 2
+            if nums[mid] < nums[right]:
+                right = mid
             else:
-                left = check + 1
+                left = mid + 1
         # nums[right] is smallest
         if nums[n] == target:
             return n
