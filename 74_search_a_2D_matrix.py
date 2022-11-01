@@ -1,3 +1,4 @@
+# N = columns times row
 # Time: O(logN)
 # Space: O(1)
 
@@ -7,9 +8,8 @@ from typing import List
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         up = 0
-        m = len(matrix)
-        down = m
-        flag = 0
+        row = len(matrix)
+        down = row
         n = len(matrix[0])
         while up < down:
             mid = (up + down) // 2
@@ -26,7 +26,7 @@ class Solution:
             if matrix[up-1][mid] == target:
                 return True
             elif matrix[up-1][mid] < target:
-                left = mid+1
+                left = mid + 1
             else:
                 right = mid
         return False
