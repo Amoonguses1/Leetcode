@@ -23,12 +23,10 @@ class Solution:
                 left = mid+1
         if exist_flag:
             return indices_list
+        
         indices_list[0] = right
         left = 0
         right = n
-        if nums[n-1] == target:
-            indices_list[1] = n-1
-            return indices_list
         #find max
         while left < right:
             mid =(left + right) // 2
