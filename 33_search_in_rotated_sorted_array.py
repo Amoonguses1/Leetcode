@@ -1,5 +1,5 @@
-%time: O(logN)
-%space O(1)
+#time: O(logN)
+#space O(1)
 from typing import List
 
 
@@ -16,19 +16,13 @@ class Solution:
             else:
                 left = mid + 1
         # nums[right] is smallest
-        if nums[n] == target:
-            return n
-            
-        elif nums[n] < target:
+        if nums[n] < target:
             right -=1
             left = 0
         else:
             left = right
             right = n
-        if nums[right] == target:
-            return right
-            
-        while left < right:
+        while left <= right:
             mid = ( left + right ) // 2
             if nums[mid] ==target:
                 return mid
@@ -36,5 +30,5 @@ class Solution:
             elif nums[mid] < target:
                 left = mid + 1
             else:
-                right = mid
+                right = mid - 1
         return -1
