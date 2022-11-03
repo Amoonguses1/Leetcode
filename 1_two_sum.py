@@ -9,24 +9,27 @@ class Solution:
         nums_sorted = sorted(nums)
         n = len(nums_sorted)
         for i in range(n):
-            left = i+1
+            left = i
             right = n
-            while left < right:
-                mid = (left+right)//2
+            mid = (left+right)//2
+            found_flag = False
+            while left < right - 1:
                 if nums_sorted[i] + nums_sorted[mid] == target:
+                    found_flag = True
                     break
                 elif nums_sorted[i] + nums_sorted[mid] < target:
-                    left = mid+1
+                    left = mid
                 else:
                     right = mid
-            indices_list=[]
-            if left != right:
+                mid = (left+right)//2
+            indices_list = []
+            if found_flag:
                 for j in range(n):
                     if nums[j] == nums_sorted[i]:
                         indices_list.append(j)
                         break
                 for j in range(n):
-                    if nums[j] == nums_sorted[(left+right)//2] and j != indices_list[0]:
+                    if nums[j] == nums_sorted[mid] and j != indices_list[0]:
                         indices_list.append(j)
                         break
                 return indices_list
