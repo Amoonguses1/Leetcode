@@ -1,5 +1,5 @@
-#time: O(logn) n= len(nums)
-#space: O(1)
+# time: O(logn) n= len(nums)
+# space: O(1)
 from typing import List
 
 
@@ -7,15 +7,15 @@ class Solution:
 
     def findPeakElement(self, nums: List[int]) -> int:
         left = 0
-        right = len(nums) -1
-        while left < right:
+        right = len(nums)
+        while left < right - 1:
             mid = (left + right) // 2
-            if nums[mid] > nums[mid + 1]:
-                if nums[mid] > nums[mid -1]:
+            if nums[mid] > nums[mid - 1]:
+                if mid == len(nums) - 1 or nums[mid] > nums[mid + 1]:
                     return mid
-                
+
                 else:
-                    right = mid - 1
+                    left = mid
             else:
-                left = mid + 1
+                right = mid
         return left
