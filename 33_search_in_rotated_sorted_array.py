@@ -1,34 +1,33 @@
-#time: O(logN)
-#space O(1)
+# time: O(logN) N is size of nums
+# space O(1)
 from typing import List
 
 
 class Solution:
 
     def search(self, nums: List[int], target: int) -> int:
-        left = 0
-        n = len(nums) - 1
-        right = n
-        while left < right:
-            mid = ( left + right ) // 2
+        left = -1
+        nums_length = len(nums) - 1
+        right = nums_length
+        while left < right - 1:
+            mid = (left + right) // 2
             if nums[mid] < nums[right]:
                 right = mid
             else:
-                left = mid + 1
+                left = mid
         # nums[right] is smallest
-        if nums[n] < target:
-            right -=1
-            left = 0
+        if nums[nums_length] < target:
+            left = -1
         else:
-            left = right
-            right = n
-        while left <= right:
-            mid = ( left + right ) // 2
-            if nums[mid] ==target:
+            left = right - 1
+            right = nums_length + 1
+        while left < right - 1:
+            mid = (left + right) // 2
+            if nums[mid] == target:
                 return mid
-                
+
             elif nums[mid] < target:
-                left = mid + 1
+                left = mid
             else:
-                right = mid - 1
+                right = mid
         return -1
