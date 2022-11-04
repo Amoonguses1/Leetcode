@@ -1,4 +1,4 @@
-# time: O(n)
+# time: O(n) n is nums length
 # space: O(1)
 from typing import List
 
