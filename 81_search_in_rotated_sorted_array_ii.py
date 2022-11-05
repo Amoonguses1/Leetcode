@@ -1,4 +1,4 @@
-# Time: O(NlogN)
+# Time: O(NlogN) N is the number of nums component
 # .sort() method takes O(NlogN)
 # Space: O(1)
 
@@ -14,6 +14,7 @@ class Solution:
             mid = (left + right) // 2
             if nums[mid] == target:
                 return True
+
             elif nums[mid] < target:
                 left = mid
             else:
