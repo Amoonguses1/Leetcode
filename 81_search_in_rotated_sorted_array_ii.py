@@ -11,7 +11,7 @@ class Solution:
         left = -1
         right = len(nums)
         while left < right - 1:
-            mid = (left + right) // 2
+            mid = (left+right) // 2
             if nums[mid] == target:
                 return True
 
