@@ -11,7 +11,7 @@ class Solution:
         which is greater than its both neighbors.
         In this function, both nums[-1] and nums[len(nums)],
         , both ends of lists, are minus infinity.
-        
+
         Args:
             nums(list[int]): list of integer
 
