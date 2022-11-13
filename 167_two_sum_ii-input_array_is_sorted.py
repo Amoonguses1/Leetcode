@@ -1,4 +1,5 @@
-# time: O(nlogn) n is size of numbers
+# n = len(numbers)
+# time: O(nlogn)
 # space: O(1)
 from typing import List
 
@@ -6,6 +7,20 @@ from typing import List
 class Solution:
 
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        """Function to find indices of the two numbers
+        which add up to target in binary search.
+
+        Args:
+            numbers(List[int]): list of integer
+            target(int): integer
+        
+        Returns:
+            List[int]: indices of the two numbers
+        
+        """
+        if not numbers or target is None:
+            raise ValueError("Your inputs don't fit.")
+
         nums_length = len(numbers)
         indices_list = []
         for i in range(nums_length):
@@ -22,25 +37,38 @@ class Solution:
                     left = mid
                 else:
                     right = mid
+            return []
 
 
-# Time: O(n) n is size of numbers
+# n = len(numbers)
+# Time: O(n)
 # Space: O(1)
 
 
 class Solution:
 
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        """Function to find indices of the two numbers
+        which add up to target in two pointers.
+
+        Args:
+            numbers(List[int]): list of integer
+            target(int): integer
+
+        Returns:
+            List[int]: indices of the two numbers
+        """
+        if not numbers or target is None:
+            raise ValueError("Your inputs don't fit.")
+
         left = 0
         right = len(numbers) - 1
-        answer_list = []
         while left != right:
             if numbers[left] + numbers[right] == target:
-                answer_list.append(left+1)
-                answer_list.append(right+1)
-                return answer_list
+                return [left+1, right+1]
 
             elif numbers[left] + numbers[right] < target:
                 left += 1
             else:
                 right -= 1
+        return []
