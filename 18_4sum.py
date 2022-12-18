@@ -1,4 +1,6 @@
-
+# time O(n**3 logn)
+# space O(n)
+# n = len(nums)
 from typing import List
 
 
