@@ -7,14 +7,11 @@ from collections import defaultdict
 
 class Solution:
     def lengthLongestPath(self, input: str) -> int:
-        """Function to find the longest absolute path
+        """Function to calculate the longest absolute path
             Args:
-                input(str):  may contain lowercase or uppercase English letters
-                    , a new line character '\n', a tab character '\t'
-                    a dot '.', a space ' ', and digits
+                input(str):  a string which means a directory structure
             Returns:
-                int:  the length of the longest absolute path to a file in the
-                    abstracted file system
+                int:  an integer which means the longest path length
         """
         maxlen = 0
         pathlen = defaultdict(int)
