@@ -6,7 +6,7 @@ class Solution:
     def mostFrequentEven(self, nums: List[int]) -> int:
         """Function to the most frequent even element.
             Args:
-                nums(List[int]): an interger list
+                nums(List[int]): an integer list
             Returns:
                 int: the most frequent even element
         """
