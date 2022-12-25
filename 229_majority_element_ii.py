@@ -7,7 +7,7 @@ from typing import List
 def majorityElement(self, nums: List[int]) -> List[int]:
     """Function to find all the elements that appear more than ⌊ n/3 ⌋ times.
         Args:
-            nums(List[int]): interger array
+            nums(List[int]): integer array
         Returns:
             List[int]: the elements that appear more than ⌊ n/3 ⌋ times.
     """
