@@ -21,6 +21,8 @@ class Solution:
                 List[Optional[TreeNode]]: the list of all possible full
                 binary trees consist of n nodes
         """
+        if not isinstance(n, int):
+            raise ValueError("n needs to be inputted type int.")
         return self.dp(n, defaultdict(list))
 
     def dp(self, n, memo):
