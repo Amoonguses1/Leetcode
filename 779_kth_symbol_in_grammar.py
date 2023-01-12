@@ -28,7 +28,7 @@ class Solution:
         # recursion
         # Time: O(n)
         # Space: O(n)
-        if not n.decimal() or not k.decimal():
+        if not n.isdecimal() or not k.isdecimal():
             raise ValueError("invalid input")
 
         return self.dp(n, k-1)
