@@ -21,6 +21,7 @@ class Solution:
         # iterative solution
         # Time: O(N)
         # Space: O(1)
+        # N is the number of nodes
         """
         prev = None
         curr = head
@@ -34,6 +35,7 @@ class Solution:
         # recursive solution
         # Time: O(N)
         # Space: O(N)
+        # N is the number of nodes
         if head is None or head.next is None:  # head = 2 & 2 -> 3
             return head
 
