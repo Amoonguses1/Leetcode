@@ -21,6 +21,9 @@ class Solution:
             Returns:
                 int: the maximum depth
         """
+        if not isinstance(root, TreeNode) and root:
+            raise ValueError("Input must be a tree or Null")
+
         # iterative
         """
         stack = list()
