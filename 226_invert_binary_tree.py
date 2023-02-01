@@ -21,7 +21,7 @@ class Solution:
             Returns:
                 Optional[TreeNode]: inverted binary tree
         """
-        if not isinstance(root, TreeNode) or root:
+        if not isinstance(root, TreeNode) and root:
             raise ValueError("Input must be a tree or Null")
 
         # iterative
