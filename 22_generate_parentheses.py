@@ -1,8 +1,5 @@
-# Time: O(X)
-# Space: O(X)
-# X = binomial(2n,n)-Sigma from i = 0 to i=n
-#                    Sigma from j = 0 to j = i-1,
-#                       binomial(i+j,j)*binomial*(2n-i-j, n-i)
+# Time: O(2**n)
+# Space: O(2**n)
 from typing import List
 
 
@@ -17,7 +14,7 @@ class Solution:
                 List[str]: all well-formed parentheses
         """
         if not isinstance(n, int):
-            raise ValueError("N must be an integer.")
+            raise TypeError("N must be an integer.")
 
         self.res = []
         self.dfs(0, 0, "", n)
