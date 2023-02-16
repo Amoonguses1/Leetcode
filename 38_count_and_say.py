@@ -1,6 +1,5 @@
-# Time: O(N)
-# Space: O(N)
-# N = len(self.countAndSay(n-1))
+# Time: O(2**n)
+# Space: O(2**n)
 
 
 class Solution:
