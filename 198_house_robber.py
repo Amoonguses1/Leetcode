@@ -1,21 +1,20 @@
 # Time: O(N)
 # Space: O(1)
-# N = len(nums)
 from typing import List
 
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        """Function to get maximum sum with the following condition
-        Condition
-            If you choose ith number from an array,
-            you can't choose i-1th and i+1th number.
+        """Find thelargest sum without any adjacent elements.
+
+        Given an integer array nums, return the maximum amount of
+        the sum without choosing any adjacent elements.
 
         Args:
-            nums(List[int]): a list consist of integer
+            nums(List[int]): an integer array
 
         Returns:
-            int: the maximum sum
+            int: the largest sum under the condition
         """
         old, tmp = 0, 0
         for num in nums:
