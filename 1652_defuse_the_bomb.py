@@ -6,15 +6,22 @@ from typing import List
 
 class Solution:
     def decrypt(self, code: List[int], k: int) -> List[int]:
-        if k == 0:
-            return [0] * len(code)
-
         length = len(code)
+        if k == 0:
+            return [0] * length
+
+        res = []
         code = code * 2
-        ans = []
+
+        if k > 0:
+            curSum = sum(code[1:k+1])
+            for i in range(length):
+                res.append(curSum)
+                curSum += code[i+k+1] - code[i+1]
+            return res
+
+        curSum = sum(code[length+k:length])
         for i in range(length):
-            if k > 0:
-                ans.append(sum(code[i+1:i+k+1]))
-            else:
-                ans.append(sum(code[i+length+k:i+length]))
-        return ans
+            res.append(curSum)
+            curSum += code[length+i] - code[length+k+i]
+        return res
