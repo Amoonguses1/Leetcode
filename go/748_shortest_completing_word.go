@@ -14,13 +14,14 @@ import (
 	"strings"
 )
 
+var digitRegex = regexp.MustCompile(`[0-9]`)
+
 // ShortestCompletingWord finds the shortest completing word.
 // A completing word is a word that contains all letters in licensePlate.
 // Ignore numbers and spaces in licensePlate, and treat that letters are
 // case insensitive.
 func ShortestCompletingWord(licensePlate string, words []string) string {
-	re := regexp.MustCompile(`[0-9]`)
-	alphabeticalMap := getAlphabet(formatWord(licensePlate, re))
+	alphabeticalMap := getAlphabet(formatWord(licensePlate, digitRegex))
 
 	// Store result
 	result := ""
@@ -28,7 +29,7 @@ func ShortestCompletingWord(licensePlate string, words []string) string {
 
 	// Iterate the given words
 	for _, word := range words {
-		if isCompletingWord(formatWord(word, re), alphabeticalMap) {
+		if isCompletingWord(formatWord(word, digitRegex), alphabeticalMap) {
 			if stringLength > len(word) {
 				result = word
 				stringLength = len(word)
@@ -41,11 +42,11 @@ func ShortestCompletingWord(licensePlate string, words []string) string {
 
 // formatWord formats the given word by removing spaces and numbers,
 // and converting all letters to lowercase.
-func formatWord(word string, re *regexp.Regexp) string {
+func formatWord(word string, digitRegex *regexp.Regexp) string {
 	lowerWord := strings.ToLower(word)
 	wordWithoutSpace := strings.Replace(lowerWord, " ", "", -1)
 
-	return re.ReplaceAllString(wordWithoutSpace, "")
+	return digitRegex.ReplaceAllString(wordWithoutSpace, "")
 }
 
 // getAlphabet returns a frequency map of each letter in the given string.
@@ -60,8 +61,9 @@ func getAlphabet(licensePlate string) map[byte]int {
 
 // isCompletingWord checks if a word contains all letters from the given frequency map.
 func isCompletingWord(word string, alphabeticalMap map[byte]int) bool {
+	wordMap := getAlphabet(word)
 	for key, val := range alphabeticalMap {
-		if strings.Count(word, string(key)) < val {
+		if wordMap[key] < val {
 			return false
 		}
 	}
